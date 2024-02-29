@@ -1,0 +1,16 @@
+%We have already created the function luSelfwP ...
+%Now we are using that function and try to evaluate the solution of given
+%equations
+
+function[X]=Q2(A)
+[n,n]=size(A);
+B=[1;0];
+[P,L,U]=luSelfwP(A);   % evaluating P L U using the function luSelfwP function
+B=P*B;
+Y=FdSubs(L, B);
+X=BdSubs(U, Y);
+   
+P,L,U
+
+
+

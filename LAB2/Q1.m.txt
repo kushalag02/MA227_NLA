@@ -1,0 +1,19 @@
+%We have already created the function luSelfnP ...
+%Now we are using that function and try to evaluate the solution of given
+%equations
+
+function[X]=Q1(n)
+A=ones(n,n); 
+[m ,n]=size(A); 
+% A and B are as given in the Question
+B=[1;0];
+A(1,1)=power(10,-15);       %changing the values of A(1,1)
+   
+[L,U]=luSelfnP(A)     % Here we are using luselfnP function and evaluating L and U
+
+  Y=FdSubs(L, B);
+  X=BdSubs(U, Y);
+  display('Using A\B');
+  display(A\B);
+  display('Using LU');
+end

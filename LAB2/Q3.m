@@ -1,0 +1,26 @@
+% Running a for loop so that value of n can be varied from 20 to 100 with thre gap of 20
+
+for n=20:20:100
+    A=rand(n,n);   % Genreatign a square matrix using rand
+    A(1,1)=power(10,-20);
+
+    %Here I am calculating L and U using luSelfnP function which we have
+    %created previously
+    [L,U]=luSelfnP(A);
+
+    %after getting L and U now we are calculating the norm of A-LU
+    val1=norm(A - L*U);
+    val1
+
+    % here i am trying to calculate P ,L,U using the luSelfwp fucntion
+    [P,L,U]=luSelfwP(A);
+    val2=norm(P*A - L*U);
+    val2
+
+    % Here I am trying to calculate P,L U using inbuilt matlab fcuntion lu
+    [P,L,U]=lu(A);
+    val3=norm(P*A - L*U);
+    val3
+
+end
+
